@@ -8,9 +8,10 @@ shipped with the paper:
 
 They are preserved **verbatim** (only the filenames were de-spaced for
 POSIX friendliness) so the paper's reproducibility claim still holds. The
-hard-coded Google Drive paths, lack of SEC-compliant `User-Agent`, and the
-`str(bytes)` write bug are all documented issues — use the new
-`edgar-research` CLI instead for any fresh work.
+hard-coded Google Drive paths, a `User-Agent` that doesn't meet SEC's
+EDGAR fair-access policy, and the `str(bytes)` write bug are all
+documented issues — use the new `edgar-research` CLI instead for any
+fresh work.
 
 ```bibtex
 @article{Ding2024EDGARtraffic,

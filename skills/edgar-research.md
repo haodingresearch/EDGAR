@@ -5,7 +5,7 @@ description: Use when the user wants to download SEC EDGAR filings of any form t
 
 # edgar-research
 
-SEC-compliant toolkit for downloading EDGAR filings, filtering daily traffic logs, and summarising filings — any form type.
+Toolkit for downloading EDGAR filings, filtering daily traffic logs, and summarising filings — any form type — that follows SEC's EDGAR fair-access policy.
 
 ## Trigger this skill when
 

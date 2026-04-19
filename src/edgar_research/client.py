@@ -1,4 +1,4 @@
-"""SEC-compliant HTTP client with rate limiting and retries.
+"""HTTP client that follows SEC's EDGAR fair-access policy.
 
 The SEC requires automated EDGAR access to declare a User-Agent that identifies
 the requester (name + contact email) and to stay below 10 requests per second

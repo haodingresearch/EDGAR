@@ -1,4 +1,4 @@
-"""Tests for the SEC-compliant HTTP client."""
+"""Tests for the SEC fair-access HTTP client."""
 from __future__ import annotations
 
 import time

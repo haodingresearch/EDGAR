@@ -1,11 +1,11 @@
 # edgar-research
 
-> Download any SEC EDGAR filing type, filter EDGAR daily traffic logs against those filings, and summarise filings with an LLM — a SEC-compliant Python toolkit. Generalises the methodology from **Ding (2024), _Retail Investor Attention and Mutual Fund Performance: Evidence from EDGAR Log Files_** ([SSRN 4992233](https://ssrn.com/abstract=4992233)) to every form type EDGAR publishes.
+> Download SEC EDGAR filings of any form type, filter daily traffic logs against those filings, and summarise them with an LLM — a Python toolkit that follows SEC's EDGAR fair-access policy. Usable as a CLI, an MCP server for AI agents, or a Claude Code skill. Generalises the methodology from **Ding (2024), _Retail Investor Attention and Mutual Fund Performance: Evidence from EDGAR Log Files_** ([SSRN 4992233](https://ssrn.com/abstract=4992233)) to every form type EDGAR publishes.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 
-Hao Ding · Oxford-Man Institute, University of Oxford · [dinghao.co.uk](https://dinghao.co.uk)
+Hao Ding · University of Oxford · [dinghao.co.uk](https://dinghao.co.uk)
 
 ---
 
@@ -161,7 +161,7 @@ retail-attention measurement.
 
 ```
 src/edgar_research/     Importable package
-  client.py             SEC-compliant HTTP (User-Agent, rate limit, retry)
+  client.py             Fair-access-policy HTTP (User-Agent, 8 rps, retry)
   forms.py              Filings downloader — any form type via form.idx
   logs.py               Daily traffic log downloader + retail filter
   index.py              Accession CSV read/write
@@ -183,9 +183,9 @@ only, and had a silent file-corruption bug. This rewrite:
 - **Fixes** the bytes-vs-`str(bytes)` write bug that corrupted every
   downloaded filing in the original `Download EDGAR forms.py`.
 - **Supports every form type** via SEC's `form.idx`, not only `N-CSR`.
-- **Declares a SEC-compliant User-Agent** (required since 2021) and
-  rate-limits to 8 req/s (below SEC's 10-rps ceiling) with exponential
-  backoff.
+- **Declares a User-Agent per SEC's EDGAR fair-access policy**
+  (required since 2021) and rate-limits to 8 req/s (below SEC's 10-rps
+  ceiling) with exponential backoff.
 - **Removes hard-coded Colab paths** — everything is a CLI argument.
 - **Resumes** mid-year: days that already succeeded are skipped.
 - **Ships as a pip-installable package** with CLI, MCP server, and tests.
